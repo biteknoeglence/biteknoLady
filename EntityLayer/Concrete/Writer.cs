@@ -20,6 +20,6 @@ namespace EntityLayer.Concrete
 
         
 
-        public List<Article> Articles { get; set; }
+        //public List<Article> Articles { get; set; }
     }
 }
