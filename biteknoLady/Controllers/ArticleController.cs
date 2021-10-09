@@ -31,6 +31,7 @@ namespace biteknoLady.Controllers
 
         public IActionResult ArticleReadAll(int id)
         {
+            ViewBag.i = id;
             var values = am.GetArticleByID(id);
             return View(values);
         }

@@ -15,5 +15,8 @@ namespace BusinessLayer.Abstract
         List<Article> GetList();
         Article GetById(int id);
         List<Article> GetArticleListWithCategory();
+
+        List<Article> GetArticleListByWriter(int id);
+
     }
 }
