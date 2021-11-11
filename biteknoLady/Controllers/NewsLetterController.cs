@@ -23,7 +23,7 @@ namespace biteknoLady.Controllers
         public PartialViewResult SubscribeMail(NewsLetter p)
         {
             p.MailStatus = true;
-            nm.AddNewsLetter(p);
+            nm.TAdd(p);
             return PartialView();
         }
     }

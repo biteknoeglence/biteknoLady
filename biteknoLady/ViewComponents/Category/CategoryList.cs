@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace biteknoLady.ViewComponents.Category
 {
-    public class CategoryList: ViewComponent
+    public class CategoryList : ViewComponent
     {
         CategoryManager cm = new CategoryManager(new EfCategoryRepository());
 

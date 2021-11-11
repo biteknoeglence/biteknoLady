@@ -89,6 +89,27 @@ namespace DataAccessLayer.Migrations
                     b.ToTable("Articles");
                 });
 
+            modelBuilder.Entity("EntityLayer.Concrete.ArticleRating", b =>
+                {
+                    b.Property<int>("ArticleRatingID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ArticleID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ArticleRatingCount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ArticleTotalScore")
+                        .HasColumnType("int");
+
+                    b.HasKey("ArticleRatingID");
+
+                    b.ToTable("ArticleRatings");
+                });
+
             modelBuilder.Entity("EntityLayer.Concrete.Category", b =>
                 {
                     b.Property<int>("CategoryID")
@@ -118,6 +139,9 @@ namespace DataAccessLayer.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("ArticleID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ArticleScore")
                         .HasColumnType("int");
 
                     b.Property<string>("CommentContent")
@@ -172,6 +196,36 @@ namespace DataAccessLayer.Migrations
                     b.ToTable("Contacts");
                 });
 
+            modelBuilder.Entity("EntityLayer.Concrete.Message", b =>
+                {
+                    b.Property<int>("MessageID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("MessageDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("MessageDetail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("MessageStatus")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Receiver")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Sender")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Subject")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("MessageID");
+
+                    b.ToTable("Messages");
+                });
+
             modelBuilder.Entity("EntityLayer.Concrete.NewsLetter", b =>
                 {
                     b.Property<int>("MailID")
@@ -188,6 +242,36 @@ namespace DataAccessLayer.Migrations
                     b.HasKey("MailID");
 
                     b.ToTable("NewsLetters");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.Notification", b =>
+                {
+                    b.Property<int>("NotID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("NotColor")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("NotDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("NotDetail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("NotStatus")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("NotType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NotTypeSymbol")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("NotID");
+
+                    b.ToTable("Notifications");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Writer", b =>

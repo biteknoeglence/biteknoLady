@@ -30,7 +30,7 @@ namespace biteknoLady.Controllers
             p.CommentDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             p.CommentStatus = true;
             p.ArticleID = 2;
-            cm.CommentAdd(p);
+            cm.TAdd(p);
             return PartialView();
         }
 

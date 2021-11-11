@@ -17,5 +17,5 @@ namespace biteknoLady.ViewComponents.Comment
             var values = cm.GetList(id);
             return View(values);
         }
-        }
+    }
 }

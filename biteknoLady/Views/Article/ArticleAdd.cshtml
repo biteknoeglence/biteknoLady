@@ -1,0 +1,31 @@
+﻿@model EntityLayer.Concrete.Article
+@{
+    ViewData["Title"] = "ArticleAdd";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<h1>Yeni Blog Girişi</h1>
+<br />
+@using (Html.BeginForm("ArticleAdd", "Article", FormMethod.Post))
+{
+    @Html.Label("Blog Başlığı")
+    @Html.TextBoxFor(x => x.ArticleTitle, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.ArticleTitle)
+    <br />
+    @Html.Label("Blog Görseli")
+    @Html.TextBoxFor(x => x.ArticleImage, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.ArticleImage)
+    <br />
+    @Html.Label("Blog Küçük Görseli")
+    @Html.TextBoxFor(x => x.ArticleThumbnailImage, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.ArticleThumbnailImage)
+    <br />
+    @Html.Label("Kategori")
+    @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.cv, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CategoryID)
+    <br />
+    @Html.Label("Blog İçeriği")
+    @Html.TextAreaFor(x => x.ArticleContent, 10, 3, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.ArticleContent)
+    <button class="btn btn-info">Yazıyı Kaydet</button>
+}
